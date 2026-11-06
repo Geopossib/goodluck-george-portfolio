@@ -1,32 +1,15 @@
-# 🌐 Open-Source Portfolio Website Template  
+# Goodluck George | Portfolio
 
-A sleek, fully customizable **portfolio website template** for developers, designers, and open-source enthusiasts. Easily showcase your work, projects, and skills with a modern, responsive design.  
+Personal portfolio of **Goodluck George**: space mission design, space robotics, aerospace technology and artificial intelligence. Founder & CEO of GDXT and Co-Founder of the African Space Robotics Network (ASRON).
 
-## 🚀 Features  
-✅ **Minimal & Clean UI** – Professionally designed for readability and ease of use  
-✅ **Fully Responsive** – Looks great on all devices  
-✅ **Dark/Light Mode** – Built-in theme switcher  
-✅ **Color Switcher** - Multi color theme switcher  
-✅ **Project Showcase** – Add and manage your work with ease   
-✅ **SEO Optimized** – Structured for better search engine ranking  
-✅ **Easy Deployment** – Deploy with GitHub Pages, Vercel, Netlify, or any hosting service  
+## Sections
+- **Home / About**: summary, contact details, leadership experience, programmes and bootcamps
+- **Technical Skills & Areas of Interest**: 11 skill areas (mission design, space robotics, aerospace, AI/ML, simulation tools, software, UAVs, embedded, Earth observation, IT)
+- **Selected Projects & Technical Work**
+- **Contact**: email, LinkedIn, WhatsApp
 
-## 🎨 Built With  
-### [ Tech] (HTML, CSS, JS,...)  
+## Tech
+Static site: HTML, CSS, JavaScript (typed.js, Font Awesome). Open `index.html` or deploy on GitHub Pages, Vercel or Netlify.
 
-
-## 🔧 Getting Started  
-1️⃣ **Clone the repo:**  
-```bash
-git clone https://github.com/mraxays/portfolio
-cd portfolio
-```  
-
-
-## 📌 Demo  
-[🔗 Live Preview](https://mraxays.github.io/portfolio)  
-
-## 🤝 Contributing  
-PRs are welcome! Feel free to fork and improve this template.  
-
----
+## Credits
+Based on the open-source portfolio template by [mraxays](https://github.com/mraxays/portfolio).

@@ -2,11 +2,11 @@
 
 var typed = new Typed(".typing", {
   strings: [
-    "Web Developer",
-    "Web Designer",
-    "Graphic Designer",
-    "YouTuber",
-    "Blogger",
+    "Space Mission Design",
+    "Space Robotics",
+    "Aerospace Technology",
+    "Artificial Intelligence",
+    "IT Project Management",
   ],
   typeSpeed: 100,
   BackSpeed: 60,
@@ -88,3 +88,15 @@ const navTogglerBtn =document.querySelector(".nav-toggler"),
             allSection[i].classList.toggle("open");
           }
      }
+
+// Contact form -> opens the visitor's email app
+document.getElementById("cf-send").addEventListener("click", function () {
+  const name = document.getElementById("cf-name").value.trim();
+  const email = document.getElementById("cf-email").value.trim();
+  const subject = document.getElementById("cf-subject").value.trim() || "Portfolio enquiry";
+  const message = document.getElementById("cf-message").value.trim();
+  const body = message + "\n\n" + name + (email ? " (" + email + ")" : "");
+  window.location.href =
+    "mailto:goodluckudofia31@gmail.com?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+});

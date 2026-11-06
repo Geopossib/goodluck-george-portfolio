@@ -891,3 +891,23 @@ h3.my-profession {
         max-width: 100%;
     }
 }
+
+/* Tags, skills & project cards */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.about .about-content .skills .skill-item .tags { justify-content: flex-start; }
+.tag {
+    font-size: 13px;
+    line-height: 1;
+    padding: 7px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--skin-color);
+    color: var(--text-black-900);
+}
+.service .service-item .service-item-inner { height: 100%; }
+.service .service-item .service-item-inner .tags { margin-top: 5px; }
+.portfolio .project-card { padding: 25px; background: var(--bg-black-100); cursor: default; height: 100%; }
+.portfolio .portfolio-item-inner.project-card:hover { transform: translateY(-10px); }
+.portfolio .project-card .project-icon { font-size: 30px; color: var(--skin-color); margin-bottom: 15px; }
+.portfolio .project-card h4 { font-size: 18px; font-weight: 700; color: var(--text-black-900); margin-bottom: 10px; }
+.portfolio .project-card p { font-size: 16px; line-height: 25px; color: var(--text-black-700); }
+.contact .contact-info-item a { text-decoration: none; }
