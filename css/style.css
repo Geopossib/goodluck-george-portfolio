@@ -1113,3 +1113,56 @@ h3.my-profession {
     .earth-globe { bottom: calc(var(--globe) * -0.62); right: 50%; margin-right: calc(var(--globe) * -0.5); }
     .earth-glow  { bottom: calc(var(--globe) * -0.68); right: 50%; margin-right: calc(var(--globe) * -0.56); }
 }
+
+
+/* ===== Space backgrounds for inner sections ===== */
+.bg-dark {
+    --bg-black-900: #05070f;
+    --bg-black-100: rgba(10, 14, 28, 0.72);
+    --bg-black-50: rgba(255, 255, 255, 0.18);
+    --text-black-900: #ffffff;
+    --text-black-700: #dfe4f0;
+}
+.bg-dark .container { position: relative; z-index: 1; }
+.bg-layer {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    margin: 0 -30px -100vh;
+    width: calc(100% + 60px);
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+.bg-layer::before {
+    content: "";
+    position: absolute;
+    inset: -6%;
+    background-size: cover;
+    background-position: center;
+    animation: kenBurns 45s ease-in-out infinite alternate;
+}
+.bg-layer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3,5,14,.5), rgba(3,5,14,.78));
+}
+.bg-sky::before   { background-image: url("../img/bg-sky.jpg"); }
+.bg-moon::before  { background-image: url("../img/bg-moon.jpg"); }
+.bg-mars::before  { background-image: url("../img/bg-mars.jpg"); filter: saturate(1.2); }
+.bg-night::before { background-image: url("../img/bg-night-earth.jpg"); }
+.bg-dark .service-item-inner,
+.bg-dark .project-card,
+.bg-dark .timeline,
+.bg-dark .contact-form .form-control {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+@keyframes kenBurns {
+    from { transform: scale(1) translate(0, 0); }
+    to   { transform: scale(1.12) translate(-2%, -2%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .bg-layer::before { animation: none !important; }
+}
