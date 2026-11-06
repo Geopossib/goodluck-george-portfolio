@@ -1044,3 +1044,72 @@ h3.my-profession {
         animation: none !important;
     }
 }
+
+
+/* ===== Home background: Earth from space ===== */
+.home {
+    background:
+      radial-gradient(1px 1px at 12% 18%, #fff, transparent 60%),
+      radial-gradient(1.5px 1.5px at 28% 62%, #fff, transparent 60%),
+      radial-gradient(1px 1px at 41% 12%, #cfe3ff, transparent 60%),
+      radial-gradient(1.5px 1.5px at 57% 38%, #fff, transparent 60%),
+      radial-gradient(1px 1px at 69% 8%, #fff, transparent 60%),
+      radial-gradient(1px 1px at 83% 52%, #cfe3ff, transparent 60%),
+      radial-gradient(1.5px 1.5px at 92% 22%, #fff, transparent 60%),
+      radial-gradient(1px 1px at 7% 80%, #fff, transparent 60%),
+      radial-gradient(ellipse at 20% 0%, #0d1b3d 0%, #02040f 70%);
+    background-color: #02040f;
+}
+.home .container { position: relative; z-index: 2; }
+.home .home-info h3,
+.home .home-info p { color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+.space-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    --globe: clamp(420px, 95vmin, 900px);
+}
+.earth-globe {
+    position: absolute;
+    width: var(--globe);
+    height: var(--globe);
+    right: calc(var(--globe) * -0.08);
+    bottom: calc(var(--globe) * -0.45);
+    border-radius: 50%;
+    background-image: url("../img/earth.jpg");
+    background-repeat: repeat-x;
+    background-size: calc(var(--globe) * 2) var(--globe);
+    box-shadow:
+      inset -70px -50px 140px rgba(0,0,0,.9),
+      inset 12px 12px 50px rgba(130,190,255,.45),
+      0 0 90px 12px rgba(70,140,255,.45);
+    animation: earthSpin 120s linear infinite;
+}
+.earth-glow {
+    position: absolute;
+    width: calc(var(--globe) * 1.12);
+    height: calc(var(--globe) * 1.12);
+    right: calc(var(--globe) * -0.14);
+    bottom: calc(var(--globe) * -0.51);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(70,140,255,.35) 55%, transparent 72%);
+    animation: glowPulse2 6s ease-in-out infinite;
+}
+@keyframes earthSpin {
+    from { background-position: 0 0; }
+    to   { background-position: calc(var(--globe) * -2) 0; }
+}
+@keyframes glowPulse2 {
+    0%, 100% { opacity: .6; }
+    50%      { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .earth-globe, .earth-glow { animation: none !important; }
+}
+
+@media (max-width: 991px) {
+    .earth-globe { bottom: calc(var(--globe) * -0.62); right: 50%; margin-right: calc(var(--globe) * -0.5); }
+    .earth-glow  { bottom: calc(var(--globe) * -0.68); right: 50%; margin-right: calc(var(--globe) * -0.56); }
+}
