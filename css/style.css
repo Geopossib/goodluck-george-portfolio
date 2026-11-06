@@ -923,3 +923,124 @@ h3.my-profession {
 .portfolio .project-card h4 { font-size: 18px; font-weight: 700; color: var(--text-black-900); margin-bottom: 10px; }
 .portfolio .project-card p { font-size: 16px; line-height: 25px; color: var(--text-black-700); }
 .contact .contact-info-item a { text-decoration: none; }
+
+
+/* ===== Home photo animations ===== */
+.home { overflow-x: hidden; }
+.home .home-img { display: flex; justify-content: center; align-items: center; }
+.photo-wrap {
+    position: relative;
+    display: inline-block;
+    animation: photoFloat 5s ease-in-out infinite;
+}
+.photo-wrap img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.2s ease-out;
+    animation: photoEnter 1.4s cubic-bezier(.2,.8,.2,1) backwards, glowPulse 3s ease-in-out 1.4s infinite;
+    will-change: transform;
+}
+/* orbiting rings */
+.orbit {
+    position: absolute;
+    top: 50%; left: 50%;
+    border: 2px dashed var(--skin-color);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: .75;
+}
+.orbit i {
+    position: absolute;
+    top: -14px; left: 50%;
+    margin-left: -14px;
+    width: 28px; height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--skin-color);
+    color: #fff;
+    font-size: 14px;
+}
+.orbit-1 { width: 118%; aspect-ratio: 1; margin: -59% 0 0 -59%; animation: spin 16s linear infinite; }
+.orbit-2 { width: 132%; aspect-ratio: 1; margin: -66% 0 0 -66%; animation: spinReverse 24s linear infinite; border-style: dotted; }
+.orbit-2 i { top: auto; bottom: -14px; transform: rotate(-45deg); }
+/* twinkling stars */
+.star {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--skin-color);
+    box-shadow: 0 0 10px 2px var(--skin-color);
+    animation: twinkle 2.4s ease-in-out infinite;
+    z-index: 3;
+}
+.s1 { top: 4%;  left: -6%;  animation-delay: 0s; }
+.s2 { top: 18%; right: -8%; animation-delay: .4s; width: 4px; height: 4px; }
+.s3 { top: 55%; left: -10%; animation-delay: .8s; width: 8px; height: 8px; }
+.s4 { bottom: 8%; right: -6%; animation-delay: 1.2s; }
+.s5 { top: -5%; right: 25%; animation-delay: 1.6s; width: 4px; height: 4px; }
+.s6 { bottom: -5%; left: 22%; animation-delay: 2s; }
+/* light sweep across the photo */
+.shine {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    overflow: hidden;
+    border-radius: 12px;
+    pointer-events: none;
+}
+.shine::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+    transform: skewX(-20deg);
+    animation: shineSweep 4.5s ease-in-out 1.6s infinite;
+}
+/* animated corner brackets (desktop) */
+.home-img::before { animation: bracketTL 3s ease-in-out infinite; }
+.home-img::after  { animation: bracketBR 3s ease-in-out infinite; }
+
+@keyframes photoEnter {
+    0%   { opacity: 0; transform: scale(.4) rotate(-12deg) translateY(60px); filter: blur(12px); }
+    60%  { opacity: 1; transform: scale(1.06) rotate(2deg); filter: blur(0); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes photoFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+}
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 0 0 transparent, 0 10px 30px rgba(0,0,0,.2); }
+    50%      { box-shadow: 0 0 35px 8px var(--skin-color), 0 10px 30px rgba(0,0,0,.2); }
+}
+@keyframes spin        { to { transform: rotate(360deg); } }
+@keyframes spinReverse { to { transform: rotate(-360deg); } }
+@keyframes twinkle {
+    0%, 100% { opacity: .15; transform: scale(.6); }
+    50%      { opacity: 1;   transform: scale(1.4); }
+}
+@keyframes shineSweep {
+    0%   { left: -60%; }
+    40%, 100% { left: 130%; }
+}
+@keyframes bracketTL {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-12px, -12px); }
+}
+@keyframes bracketBR {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(12px, 12px); }
+}
+
+@media (max-width: 991px) {
+    .home .home-img .photo-wrap img { max-width: 250px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .photo-wrap, .photo-wrap img, .orbit, .star, .shine::after, .home-img::before, .home-img::after {
+        animation: none !important;
+    }
+}

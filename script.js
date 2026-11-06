@@ -100,3 +100,22 @@ document.getElementById("cf-send").addEventListener("click", function () {
     "mailto:goodluckudofia31@gmail.com?subject=" + encodeURIComponent(subject) +
     "&body=" + encodeURIComponent(body);
 });
+
+// 3D tilt on the home photo (mouse and touch)
+(function () {
+  const wrap = document.querySelector(".photo-wrap");
+  if (!wrap) return;
+  const img = wrap.querySelector("img");
+  function tilt(x, y) {
+    const r = wrap.getBoundingClientRect();
+    const px = (x - r.left) / r.width - 0.5;
+    const py = (y - r.top) / r.height - 0.5;
+    img.style.transform =
+      "perspective(700px) rotateY(" + px * 22 + "deg) rotateX(" + -py * 22 + "deg) scale(1.05)";
+  }
+  function reset() { img.style.transform = ""; }
+  wrap.addEventListener("mousemove", (e) => tilt(e.clientX, e.clientY));
+  wrap.addEventListener("mouseleave", reset);
+  wrap.addEventListener("touchmove", (e) => tilt(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+  wrap.addEventListener("touchend", reset);
+})();
