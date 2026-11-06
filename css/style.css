@@ -871,6 +871,18 @@ h3.my-profession {
         max-width: 100%;
     }
     .home .home-img{
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: -1;
+        margin-bottom: 30px;
+    }
+    .home .home-img img{
+        height: auto;
+        width: 100%;
+        max-width: 320px;
+    }
+    .home-img::before,
+    .home-img::after{
         display: none;
     }
 }
